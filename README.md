@@ -2,6 +2,8 @@
 
 [Flutter-Miniprogram](https://github.com/Flutter-Miniprogram/Flutter-Miniprogram) 资源服务器
 
+设计文档：https://www.yuque.com/tatgr4/resources/dgpehd
+
 ## Installation
 
 ```bash
@@ -13,12 +15,6 @@ $ yarn
 ```bash
 # development
 $ yarn start
-
-# watch mode
-$ yarn start:dev
-
-# production mode
-$ yarn start:prod
 ```
 
 ## Test
