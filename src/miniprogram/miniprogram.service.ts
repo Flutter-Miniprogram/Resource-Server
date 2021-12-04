@@ -8,6 +8,7 @@ import { Miniprogram } from './entities/miniprogram.entity';
 @Injectable()
 export class MiniprogramService {
   private readonly logger = new Logger(MiniprogramService.name);
+
   constructor(
     @InjectRepository(Miniprogram)
     private readonly miniprogramRepo: Repository<Miniprogram>,
