@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import request = require('supertest');
-import { MiniprogramController } from './miniprogram.controller';
 import { HttpStatus, INestApplication } from '@nestjs/common';
+import * as supertest from 'supertest';
+import { MiniprogramController } from './miniprogram.controller';
 import { AppModule } from '../app.module';
 
 describe('MiniprogramController', () => {
@@ -24,19 +24,19 @@ describe('MiniprogramController', () => {
   });
 
   it('list miniprogram should be ok', () => {
-    return request(app.getHttpServer())
+    return supertest(app.getHttpServer())
       .get('/miniprogram')
       .expect(HttpStatus.OK)
-      .expect(({ body }: request.Response) => {
+      .expect(({ body }: supertest.Response) => {
         expect(body).toEqual(expect.arrayContaining([]));
       });
   });
 
   it('get miniprogram resource should be 404', () => {
-    return request(app.getHttpServer())
+    return supertest(app.getHttpServer())
       .get('/miniprogram/404/resource/404')
       .expect(HttpStatus.NOT_FOUND)
-      .expect(({ body }: request.Response) => {
+      .expect(({ body }: supertest.Response) => {
         expect(body).toEqual(
           expect.objectContaining({
             message: 'path does not exist',

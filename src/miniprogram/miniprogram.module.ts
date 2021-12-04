@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { MiniprogramService } from './miniprogram.service';
 import { MiniprogramController } from './miniprogram.controller';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { Miniprogram } from './entities/miniprogram.entity';
 
 @Module({
