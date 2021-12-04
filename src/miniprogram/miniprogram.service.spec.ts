@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { AppModule } from '../app.module';
 import { MiniprogramService } from './miniprogram.service';
 
 describe('MiniprogramService', () => {
@@ -6,7 +7,7 @@ describe('MiniprogramService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [MiniprogramService],
+      imports: [AppModule],
     }).compile();
 
     service = module.get<MiniprogramService>(MiniprogramService);

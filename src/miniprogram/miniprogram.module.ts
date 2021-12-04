@@ -8,5 +8,6 @@ import { Miniprogram } from './entities/miniprogram.entity';
   imports: [TypeOrmModule.forFeature([Miniprogram])],
   controllers: [MiniprogramController],
   providers: [MiniprogramService],
+  exports: [MiniprogramService],
 })
 export class MiniprogramModule {}

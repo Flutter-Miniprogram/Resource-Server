@@ -61,7 +61,7 @@ export class MiniprogramController {
     );
     this.logger.verbose('path: ' + path);
     if (!existsSync(path)) {
-      throw new NotFoundException();
+      throw new NotFoundException('path does not exist');
     }
     const file = createReadStream(path);
     res.set({

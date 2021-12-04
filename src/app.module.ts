@@ -8,6 +8,7 @@ import { Resource } from '@adminjs/typeorm';
 Resource.validate = validate;
 AdminJS.registerAdapter(AdminJSTypeORM);
 
+import DbConfig from './database';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MiniprogramModule } from './miniprogram/miniprogram.module';
@@ -15,12 +16,7 @@ import { Miniprogram } from './miniprogram/entities/miniprogram.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: 'sqlite',
-      entities: [Miniprogram],
-      synchronize: true,
-    }),
+    TypeOrmModule.forRoot(DbConfig),
     AdminModule.createAdmin({
       adminJsOptions: {
         rootPath: '/admin',
