@@ -8,7 +8,7 @@ import {
   Response,
   StreamableFile,
 } from '@nestjs/common';
-import { ApiQuery } from '@nestjs/swagger';
+import { ApiParam, ApiQuery } from '@nestjs/swagger';
 import { createReadStream, existsSync } from 'fs';
 import { join } from 'path';
 import { MiniprogramService } from './miniprogram.service';
@@ -38,10 +38,22 @@ export class MiniprogramController {
   }
 
   @Get(':uuid/resource/:versionCode')
+  @ApiParam({
+    name: 'uuid',
+    required: true,
+    description: '小程序 UUID',
+    example: 'example-uuid',
+  })
+  @ApiParam({
+    name: 'versionCode',
+    required: true,
+    description: '小程序版本号',
+    example: 'latest',
+  })
   getMiniprogram(
     @Response({ passthrough: true }) res,
     @Param('uuid') uuid: string,
-    @Param('versionCode') versionCode: number,
+    @Param('versionCode') versionCode: string,
   ) {
     const path = join(
       process.cwd(),
