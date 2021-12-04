@@ -38,3 +38,6 @@ sqlite
 
 # adminjs
 .adminjs
+
+miniprogram/*
+!miniprogram/example-uuid

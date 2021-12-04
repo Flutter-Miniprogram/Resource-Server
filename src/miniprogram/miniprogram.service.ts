@@ -19,7 +19,7 @@ export class MiniprogramService {
 
   findAll(dto: { name?: string }) {
     const { name } = dto;
-    this.logger.verbose('name', name);
+    this.logger.verbose('name: ' + name);
     const select: (keyof Miniprogram)[] = ['uuid', 'name', 'logoUrl'];
     if (name) {
       return this.miniprogramRepo.find({

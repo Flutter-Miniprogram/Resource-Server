@@ -1,11 +1,24 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Logger,
+  NotFoundException,
+  Param,
+  Query,
+  Response,
+  StreamableFile,
+} from '@nestjs/common';
 import { ApiQuery } from '@nestjs/swagger';
+import { createReadStream, existsSync } from 'fs';
+import { join } from 'path';
 import { MiniprogramService } from './miniprogram.service';
 // import { CreateMiniprogramDto } from './dto/create-miniprogram.dto';
 // import { UpdateMiniprogramDto } from './dto/update-miniprogram.dto';
 
 @Controller('miniprogram')
 export class MiniprogramController {
+  private readonly logger = new Logger(MiniprogramController.name);
+
   constructor(private readonly miniprogramService: MiniprogramService) {}
 
   // @Post()
@@ -22,6 +35,27 @@ export class MiniprogramController {
   @Get(':uuid')
   findOne(@Param('uuid') uuid: string) {
     return this.miniprogramService.findOne(uuid);
+  }
+
+  @Get(':uuid/resource/:versionCode')
+  getMiniprogram(
+    @Response({ passthrough: true }) res,
+    @Param('uuid') uuid: string,
+    @Param('versionCode') versionCode: number,
+  ) {
+    const path = join(
+      process.cwd(),
+      `miniprogram/${uuid}/${versionCode}/archive.zip`,
+    );
+    this.logger.verbose('path: ' + path);
+    if (!existsSync(path)) {
+      throw new NotFoundException();
+    }
+    const file = createReadStream(path);
+    res.set({
+      'Content-Disposition': `attachment; filename="${uuid}-${versionCode}.zip"`,
+    });
+    return new StreamableFile(file);
   }
 
   // @Patch(':id')
