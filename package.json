@@ -8,7 +8,7 @@
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
+    "start": "nest start --watch",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -27,6 +27,7 @@
     "@nestjs/core": "^8.2.3",
     "@nestjs/mapped-types": "^1.0.0",
     "@nestjs/platform-express": "^8.2.3",
+    "@nestjs/swagger": "^5.1.5",
     "@nestjs/typeorm": "^8.0.2",
     "adminjs": "^5.3.2",
     "class-validator": "^0.13.2",
@@ -37,6 +38,7 @@
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
     "sqlite3": "^5.0.2",
+    "swagger-ui-express": "^4.2.0",
     "typeorm": "^0.2.41"
   },
   "devDependencies": {

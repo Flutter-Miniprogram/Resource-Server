@@ -24,9 +24,23 @@ import { Miniprogram } from './miniprogram/entities/miniprogram.entity';
     AdminModule.createAdmin({
       adminJsOptions: {
         rootPath: '/admin',
+        branding: {
+          companyName: 'Flutter-Miniprogram',
+        },
         resources: [
           {
             resource: Miniprogram,
+            options: {
+              properties: {
+                // uuid: {
+                //   isVisible: {
+                //     show: true,
+                //     list: true,
+                //     filter: true,
+                //   },
+                // },
+              },
+            },
           },
         ] as ResourceWithOptions[],
       },

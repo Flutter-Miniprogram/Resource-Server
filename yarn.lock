@@ -1504,7 +1504,7 @@
     tslib "2.3.1"
     uuid "8.3.2"
 
-"@nestjs/mapped-types@^1.0.0":
+"@nestjs/mapped-types@1.0.0", "@nestjs/mapped-types@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@nestjs/mapped-types/-/mapped-types-1.0.0.tgz#52a0441795f6da8144a35970d3ebc19281f31cfd"
   integrity sha512-26AW5jHadLXtvHs+M+Agd9KZ92dDlBrmD0rORlBlvn2KvsWs4JRaKl2mUsrW7YsdZeAu3Hc4ukqyYyDdyCmMWQ==
@@ -1520,7 +1520,7 @@
     multer "1.4.3"
     tslib "2.3.1"
 
-"@nestjs/schematics@^8.0.3":
+"@nestjs/schematics@^8.0.3", "@nestjs/schematics@^8.0.5":
   version "8.0.5"
   resolved "https://registry.npmjs.org/@nestjs/schematics/-/schematics-8.0.5.tgz"
   integrity sha512-nK1hWQeLNbdhsiJDX/XJXLqq7nC6/xxC8CN+seFTQmly+H3gG2xaFnl6JPHURumuQaYJX8JEpC8m0+4tz+wvOg==
@@ -1531,16 +1531,14 @@
     jsonc-parser "3.0.0"
     pluralize "8.0.0"
 
-"@nestjs/schematics@^8.0.5":
-  version "8.0.5"
-  resolved "https://registry.yarnpkg.com/@nestjs/schematics/-/schematics-8.0.5.tgz#7154be7d85a135ea75bb275db042c2a663677a48"
-  integrity sha512-nK1hWQeLNbdhsiJDX/XJXLqq7nC6/xxC8CN+seFTQmly+H3gG2xaFnl6JPHURumuQaYJX8JEpC8m0+4tz+wvOg==
+"@nestjs/swagger@^5.1.5":
+  version "5.1.5"
+  resolved "https://registry.yarnpkg.com/@nestjs/swagger/-/swagger-5.1.5.tgz#ee565e98b6d05b7a5d90c9f15b4d72586b6f77cf"
+  integrity sha512-jvsgciVEFcYVVEuLdNAmgJDpFSQzIoukg+Ovz1vJ97OeCprx0sVhmocn13nCl/dEwIkwoM3eby9OiaccX0A+3A==
   dependencies:
-    "@angular-devkit/core" "13.0.2"
-    "@angular-devkit/schematics" "13.0.2"
-    fs-extra "10.0.0"
-    jsonc-parser "3.0.0"
-    pluralize "8.0.0"
+    "@nestjs/mapped-types" "1.0.0"
+    lodash "4.17.21"
+    path-to-regexp "3.2.0"
 
 "@nestjs/testing@^8.2.3":
   version "8.2.3"
@@ -1940,19 +1938,9 @@
   dependencies:
     "@types/express" "*"
 
-"@types/express@*":
+"@types/express@*", "@types/express@^4.17.13":
   version "4.17.13"
   resolved "https://registry.npmjs.org/@types/express/-/express-4.17.13.tgz"
-  integrity sha512-6bSZTPaTIACxn48l50SR+axgrqm6qXFIxrdAKaG6PaJk3+zuUr35hBlgT7vOmJcum+OEaIBLtHV/qloEAFITeA==
-  dependencies:
-    "@types/body-parser" "*"
-    "@types/express-serve-static-core" "^4.17.18"
-    "@types/qs" "*"
-    "@types/serve-static" "*"
-
-"@types/express@^4.17.13":
-  version "4.17.13"
-  resolved "https://registry.yarnpkg.com/@types/express/-/express-4.17.13.tgz#a76e2995728999bab51a33fabce1d705a3709034"
   integrity sha512-6bSZTPaTIACxn48l50SR+axgrqm6qXFIxrdAKaG6PaJk3+zuUr35hBlgT7vOmJcum+OEaIBLtHV/qloEAFITeA==
   dependencies:
     "@types/body-parser" "*"
@@ -5612,7 +5600,7 @@ lodash.merge@^4.6.2:
   resolved "https://registry.npmjs.org/lodash.merge/-/lodash.merge-4.6.2.tgz"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
 
-lodash@^4.17.11, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.7.0:
+lodash@4.17.21, lodash@^4.17.11, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.7.0:
   version "4.17.21"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -7475,6 +7463,18 @@ supports-hyperlinks@^2.0.0:
   dependencies:
     has-flag "^4.0.0"
     supports-color "^7.0.0"
+
+swagger-ui-dist@>3.52.5:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-4.1.2.tgz#5dd182400eaead52511707b50bde29672a975794"
+  integrity sha512-Pj960coj9L0nAQPE1vgBzHulKGPNw1ifn/1GTIv/mlV9V3PoRM0uTcE0uhTiizx6aHg+vnFFmbA2J1gjFekOaQ==
+
+swagger-ui-express@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/swagger-ui-express/-/swagger-ui-express-4.2.0.tgz#98797cc147071170670415c9193951cfbde173bd"
+  integrity sha512-znrHTwh9UpvsjqgWopA4noIet7mi7UGuIYZ465YfUDKQ5Dpas0jxnkfUKCo+0aB17YCBv26AhIjiQYDV4uvJFA==
+  dependencies:
+    swagger-ui-dist ">3.52.5"
 
 symbol-observable@4.0.0:
   version "4.0.0"
